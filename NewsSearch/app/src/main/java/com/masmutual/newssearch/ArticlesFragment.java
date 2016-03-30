@@ -163,7 +163,7 @@ public class ArticlesFragment extends Fragment {
             else{
                 mHolder = (ViewHolder) convertView.getTag();
             }
-            final int mPosition = position;
+
             if(articles.get(position).getImageURL() != null){
 
                 String url = AppConstants.IMAGE_BASE_URL+articles.get(position).getImageURL();
@@ -185,6 +185,9 @@ public class ArticlesFragment extends Fragment {
                     }
                 });
                 Volley.newRequestQueue(getActivity()).add(imgRequest);
+            }
+            else{
+                mHolder.imageView.setImageResource(R.drawable.placeholder);
             }
 
             mHolder.headlines.setText(articles.get(position).getHeadline());
